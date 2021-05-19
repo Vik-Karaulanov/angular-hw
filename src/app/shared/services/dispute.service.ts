@@ -3,7 +3,6 @@ import { Observable, of } from 'rxjs';
 import { Dispute } from '../models/Dispute';
 import { Participants, Status, Issue } from '../enums/enums';
 
-
 @Injectable({
   providedIn: 'root',
 })
@@ -37,7 +36,7 @@ export class DisputeService {
           },
         ],
         cargo: {
-          awb: ['176-21213124123'],
+          awb: ['176-2121421'],
           carrier: 'ACC',
           forwarder: 'CCN',
           actionItem: 'This is a free text ...',
@@ -83,6 +82,48 @@ export class DisputeService {
             '176-21213124',
             '176-21213124',
             '176-21213124',
+          ],
+          carrier: 'ACC',
+          forwarder: 'CCN',
+          actionItem: 'This is a free text ...',
+          owner: 'ACC',
+          dueDate: new Date('06.11.2020'),
+          completionDate: new Date('10.11.2020'),
+        },
+      },
+      {
+        referenceNumber: '2012/124',
+        description: 'NFD is Below Threshold',
+        impactOfIssue: Issue.Minor,
+        status: Status.InProgress,
+        update: {
+          updatedBy: 'Ivan Ivanov',
+          date: new Date('08.01.2019'),
+        },
+        comments: [
+          {
+            commenter: Participants.Carrier,
+            message: 'Issue is at CDMP-F and they are fixing it.',
+          },
+          {
+            commenter: Participants.Forwarder,
+            message:
+              'Issue is at CDMP-F and this is being fixed. This is an example if the text is too long to be displayed',
+          },
+          {
+            commenter: Participants.CargoIQ,
+            message:
+              'Issue to be resolved between CDMP-C and CDMP-F. The NDF minimum threshold is not met.',
+          },
+        ],
+        cargo: {
+          awb: [
+            '176-21213527',
+            '176-21213527',
+            '176-21213527',
+            '176-21213527',
+            '176-21213527',
+            '176-21213527',
           ],
           carrier: 'ACC',
           forwarder: 'CCN',

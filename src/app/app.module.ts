@@ -14,7 +14,9 @@ import { CommentComponent } from './comment/comment.component';
   imports: [
     BrowserModule
   ],
-  providers: [],
+  providers: [{
+    provide: 'windowObject', useValue: window
+  }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

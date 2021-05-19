@@ -40,7 +40,9 @@
         <button
           class="btn"
           [ngClass]="{
-            'edit-btn bold': dispute.status === Status.Open,
+            'edit-btn bold':
+              dispute.status === Status.Open ||
+              dispute.status === Status.InProgress,
             're-open-btn': dispute.status === Status.Closed
           }"
         >
@@ -92,7 +94,7 @@
       </div>
       <div class="comments-container">
         <hw-comment
-        class="comment-item"
+          class="comment-item"
           *ngFor="let comment of dispute.comments"
           [comment]="comment"
         ></hw-comment>

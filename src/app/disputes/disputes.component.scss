@@ -1,5 +1,15 @@
+$open-color: red;
+$closed-color: green;
+$in-progress-color: rgb(238, 238, 32);
+$base-color: rgb(0, 155, 226);
+$border-color: rgb(207, 207, 207);
+$comments-background-color: rgb(241, 251, 255);
+$dispute-min-width: 1000px;
+$awb-num-size: 100px;
+
 .disputes-container {
   width: 90%;
+  min-width: $dispute-min-width;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -7,14 +17,16 @@
   .dispute {
     width: 100%;
     margin: 10px;
-    padding: 10px;
-    border: 1px solid grey;
+    // padding: 10px;
+    border: 1px solid $border-color;
     border-radius: 5px;
 
     .header {
       display: flex;
       justify-content: space-between;
       align-items: center;
+      border-bottom: 1px solid $border-color;
+      padding: 10px;
 
       .info {
         .ref {
@@ -22,13 +34,13 @@
           margin-right: 20px;
         }
         .open {
-          color: red;
+          color: $open-color;
         }
         .closed {
-          color: green;
+          color: $closed-color;
         }
         .in-progress {
-          color: rgb(172, 172, 9);
+          color: $in-progress-color;
         }
       }
 
@@ -53,16 +65,16 @@
         }
         .edit-btn {
           @extend %btn;
-          color: rgb(0, 155, 226);
-          border: 1px solid black;
+          color: $base-color;
+          border: 1px solid $border-color;
           border-radius: 3px;
         }
         .re-open-btn {
           @extend %btn;
-          background: rgb(0, 115, 192);
+          background: $base-color;
           color: white;
           border-radius: 3px;
-          width: fit-content;
+          width: 60px;
         }
       }
     }
@@ -70,6 +82,7 @@
     .main {
       width: 100%;
       margin: 10px 0;
+      padding: 0 10px;
 
       .awb-container {
         margin: 10px 0;
@@ -80,11 +93,11 @@
         // overflow: hidden;
 
         .text {
-          min-width: 80px;
+          min-width: $awb-num-size;
         }
         .awb {
-          min-width: 80px;
-          margin: 0 10px;
+          min-width: $awb-num-size;
+          text-align: center;
         }
       }
       .cargo-info {
@@ -103,7 +116,7 @@
         }
       }
       .comments-container {
-        background-color: rgb(239, 251, 255);
+        background-color: $comments-background-color;
         display: flex;
         align-items: center;
         .comment-item {
@@ -113,12 +126,12 @@
     }
   }
   .closed-dispute {
-    border-left: 5px solid green;
+    border-left: 5px solid $closed-color;
   }
   .open-dispute {
-    border-left: 5px solid red;
+    border-left: 5px solid $open-color;
   }
   .in-progress-dispute {
-    border-left: 5px solid rgb(173, 173, 0);
+    border-left: 5px solid $in-progress-color;
   }
 }
