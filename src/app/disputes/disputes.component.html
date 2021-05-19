@@ -1,0 +1,102 @@
+<div class="disputes-container">
+  <div
+    class="dispute"
+    [ngClass]="{
+      'closed-dispute': dispute.status === Status.Closed,
+      'open-dispute': dispute.status === Status.Open,
+      'in-progress-dispute': dispute.status === Status.InProgress
+    }"
+    *ngFor="let dispute of disputes"
+  >
+    <div class="header">
+      <div class="info">
+        <span class="ref">
+          <span>Ref</span>
+          <span class="bold">
+            {{ dispute.referenceNumber }}
+          </span>
+        </span>
+        Problem Description
+        <span
+          class="bold"
+          [ngClass]="{
+            open: dispute.status === Status.Open,
+            closed: dispute.status === Status.Closed,
+            'in-progress': dispute.status === Status.InProgress
+          }"
+        >
+          {{ dispute.description }}
+        </span>
+      </div>
+      <div class="updates">
+        <div class="updated-by">
+          Last Updated:
+          {{ dispute.update.updatedBy }}
+          <span class="bold">·</span>
+          {{ this.formatDate(dispute.update.date) }}
+        </div>
+        <button class="attachments-btn">Attachments</button>
+        <div class="pipe"></div>
+        <button
+          class="btn"
+          [ngClass]="{
+            'edit-btn bold': dispute.status === Status.Open,
+            're-open-btn': dispute.status === Status.Closed
+          }"
+        >
+          {{ dispute.status === Status.Closed ? "Re-open" : "Edit" }}
+        </button>
+      </div>
+    </div>
+    <div class="main">
+      <div class="awb-container">
+        <span class="text">Example AWB</span>
+        <div class="awb bold" *ngFor="let code of dispute.cargo.awb">
+          {{ code }}
+        </div>
+      </div>
+      <div class="cargo-info">
+        <div class="cargo-prop">
+          <!-- FIXME: <span>{{ participants.carrier }}</span> -->
+          <span>CDMP-C</span>
+          <span class="info">{{ dispute.cargo.carrier }}</span>
+        </div>
+        <div class="cargo-prop">
+          <span>CDMP-F</span>
+          <span class="info">{{ dispute.cargo.forwarder }}</span>
+        </div>
+        <div class="cargo-prop">
+          <span>Impact of Issue</span>
+          <span class="info">{{ dispute.impactOfIssue }}</span>
+        </div>
+        <div class="cargo-prop">
+          <span>Action Item</span>
+          <span class="info">{{ dispute.cargo.actionItem }}</span>
+        </div>
+        <div class="cargo-prop">
+          <span>Owner</span>
+          <span class="info">{{ dispute.cargo.owner }}</span>
+        </div>
+        <div class="cargo-prop">
+          <span>Due Date</span>
+          <span class="info bold">
+            {{ this.formatDate(dispute.cargo.dueDate) }}
+          </span>
+        </div>
+        <div class="cargo-prop">
+          <span>Completion Date</span>
+          <span class="info bold">
+            {{ this.formatDate(dispute.cargo.completionDate) }}
+          </span>
+        </div>
+      </div>
+      <div class="comments-container">
+        <hw-comment
+        class="comment-item"
+          *ngFor="let comment of dispute.comments"
+          [comment]="comment"
+        ></hw-comment>
+      </div>
+    </div>
+  </div>
+</div>
