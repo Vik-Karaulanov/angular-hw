@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
-import { Dispute } from '../models/Dispute';
+import { Dispute } from '../models/dispute.model';
 import { Participants, Status, Issue } from '../enums/enums';
 
 @Injectable({

@@ -89,13 +89,13 @@ $awb-num-size: 100px;
         display: flex;
         width: 100%;
         align-items: center;
-        // TODO:
-        // overflow: hidden;
+        flex-wrap: wrap;
 
         .text {
           min-width: $awb-num-size;
         }
         .awb {
+          padding: 5px 0px;
           min-width: $awb-num-size;
           text-align: center;
         }

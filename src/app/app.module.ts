@@ -2,8 +2,8 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent } from './app.component';
-import { DisputesComponent } from './disputes/disputes.component';
-import { CommentComponent } from './comment/comment.component';
+import { DisputesComponent } from './components/disputes/disputes.component';
+import { CommentComponent } from './components/comment/comment.component';
 
 @NgModule({
   declarations: [

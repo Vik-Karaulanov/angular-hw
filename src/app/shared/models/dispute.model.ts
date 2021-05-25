@@ -1,6 +1,6 @@
 import { Participants, Status, Issue } from '../enums/enums';
-import { Cargo } from './Cargo';
-import Update from './Update';
+import { Cargo } from './cargo.model';
+import Update from './update.model';
 
 
 export interface Dispute {
